@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADS! About Us</title>
+    
+    <!-- Styles -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background-color: #000; /* Set background to black */
+            position: relative;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(41, 40, 40, 0.8);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        nav img {
+            width: 200px;
+            transition: transform 0.3s ease;
+        }
+
+        nav img:hover {
+            transform: scale(1.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #f5f5f5;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 12px 24px;
+            border-radius: 25px;
+            background-color: rgba(58, 58, 58, 0.8);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: relative;
+            box-shadow: rgba(0, 0, 0, 0.5) 0 4px 12px;
+        }
+
+        nav ul li a:hover {
+            color: #fff;
+            background-color: hsl(261, 80%, 50%);
+            transform: scale(1.1);
+            box-shadow: rgba(93, 24, 220, 0.8) 0px 7px 29px;
+        }
+
+        /* Title */
+        .gallery-title {
+            text-align: center;
+            margin: 20px 0;
+            color: rgb(14, 160, 14);
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        .scroller {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            height: 300px; /* Set a height for the scroller */
+        }
+
+        .scroller-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .scroller img {
+            width: 100%;
+            height: auto;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        /* Background Video */
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Send video behind other content */
+        }
+
+        /* About Us Section */
+        .about-us {
+            text-align: center;
+            margin: 40px 20px;
+            padding: 20px;
+            background-color: rgba(41, 40, 40, 0.8);
+            border-radius: 10px;
+        }
+
+        .about-us h2 {
+            color: rgb(18, 169, 18);
+            font-size: 50px;
+            font-family: Arial, sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .about-us p {
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+        .wrapper {
+            display: flex;
+            list-style: none;
+            padding-top: 40px;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .icon {
+            position: relative;
+            background: #fff;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .icon i {
+            color: #000;
+        }
+        
+        .icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tooltip {
+            position: absolute;
+            bottom: -35px;
+            background-color: #03d17f;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        
+        .icon:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Center the footer icons */
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px; /* Add margin for spacing */
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Background Video -->
+    <video class="background-video" autoplay muted loop>
+        <source src="videohero.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <img src="logo.png" alt="Alexa Developers Club Logo">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="team.html">Our Team</a></li>
+                <li><a href="events.html">Events</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Title -->
+    <div class="gallery-title">Our Gallery</div>
+
+    <!-- Scroller -->
+    <div class="scroller" id="photoScroller">
+        <div class="scroller-inner">
+            <img src="image1.png" alt="Image 1">
+            <img src="image2.png" alt="Image 2">
+            <img src="image3.png" alt="Image 3">
+            <img src="image4.png" alt="Image 4">
+            <img src="image5.png" alt="Image 5">
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <div class="about-us">
+        <h2>About Us</h2>
+        <p>Welcome to Alexa Developers SRM, a thriving, student-run technical organization at SRMIST that brings technology and community together. We create an open atmosphere for tech enthusiasts to explore, learn, and grow, with a focus on voice-controlled technologies, application development, and UI/UX design via hands-on events and workshops. Our club is a hotbed of collaboration and innovation, where members can experiment, share expertise, and make a real difference. Whether you're a newcomer to technology or a seasoned professional, our wide range of workshops, hackathons, and contests provide ongoing learning and practical skill development. Together we build a community, where creativity knows no bounds and collaboration is key.</p>
+    </div>
+    
+      <!-- Footer Icons -->
+      <div class="footer-icons">
+        <div class="icon" onclick="window.open('https://m.facebook.com/alexadevsrm/', '_blank')">
+            <i class="fab fa-facebook-f"></i>
+            <div class="tooltip">Facebook</div>
+        </div>
+        <div class="icon" onclick="window.open('https://x.com/i/flow/login?redirect_after_login=%2Falexadevsrm', '_blank')">
+            <i class="fab fa-twitter"></i>
+            <div class="tooltip">Twitter</div>
+        </div>
+        <div class="icon" onclick="window.open('https://www.linkedin.com/company/alexa-developers-srm/', '_blank')">
+            <i class="fab fa-linkedin-in"></i>
+            <div class="tooltip">LinkedIn</div>
+        </div>
+        <div class="icon" onclick="window.open('https://www.instagram.com/alexadevsrm?igsh=c240bnl1Nnh1cTdl', '_blank')">
+            <i class="fab fa-instagram"></i>
+            <div class="tooltip">Instagram</div>
+        </div>
+    </div>
+    <script>
+        const scroller = document.getElementById('photoScroller');
+        const scrollerInner = scroller.querySelector('.scroller-inner');
+        const images = scrollerInner.children;
+        const totalImages = images.length;
+        let currentIndex = 0;
+
+        function scrollImages() {
+            currentIndex = (currentIndex + 1) % totalImages; // Loop back to the first image
+            scrollerInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        setInterval(scrollImages, 3000); // Change image every 3 seconds
+    </script>
+
+</body>
+</html>

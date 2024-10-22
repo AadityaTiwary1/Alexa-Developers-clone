@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexa Developers SRM</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #e0e0e0;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            color: #03d17f;
+            text-align: center;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, rgb(173, 173, 8), rgb(9, 206, 9));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            color: #b0b0b0;
+            line-height: 1.6;
+            font-size: 18px;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(41, 40, 40, 0.9); /* Slightly transparent dark background */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
+            transition: background-color 0.3s ease; /* Smooth transition for background */
+        }
+        
+        nav img {
+            width: 300px; /* Adjust size as needed */
+            height: auto;
+            transition: transform 0.3s ease; /* Add transition for image */
+        }
+        
+        nav img:hover {
+            transform: scale(1.05); /* Slight zoom effect on hover */
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+        
+        nav ul li {
+            margin-left: 30px; 
+        }
+        
+        nav ul li a {
+            color: #000000; /* Change text color for better contrast */
+            text-decoration: none;
+            font-weight: bold;
+            padding: 12px 24px; /* Adjusted padding for better clickability */
+            border-radius: 25px; /* Slightly less rounded for a modern look */
+            background-color: rgba(7, 232, 93, 0.9); /* Bright background */
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.5s ease, transform 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: rgb(0 0 0 / 15%) 0 4px 12px; /* Enhanced initial shadow */
+        }
+        
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(2, 235, 56, 0.5); /* Adjusted transparency */
+            border-radius: 50%;
+            transition: transform 0.5s ease;
+            z-index: 0;
+            transform: translate(-50%, -50%) scale(0);
+        }
+        
+        nav ul li a:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        nav ul li a:hover {
+            color: hsl(0, 0%, 100%); 
+            background-color: hsl(261deg 80% 48%); 
+            box-shadow: rgb(93 24 220) 0px 7px 29px; 
+            transform: scale(1.05); /* Slight scaling on hover */
+        }
+        
+        nav ul li a:active {
+            transform: translateY(2px); /* Slightly reduced translate effect on active */
+            box-shadow: rgb(93 24 220) 0px 0px 0px; /* Remove shadow on active */
+        }
+        
+        
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            color: #e0e0e0;
+            padding: 160px 20px;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        .background-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire hero section */
+            z-index: 1; /* Set z-index to 1 to keep it behind the content */
+            transform: translate(-50%, -50%);
+        }
+        
+        .hero h2 {
+            position: relative; /* Ensure text appears above the video */
+            z-index: 2; /* Keep text above the background video */
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            position: relative; /* Ensure paragraph appears above the video */
+            z-index: 2; /* Keep paragraph above the background video */
+            font-size: 25px;
+            margin: 20px 0;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #e0e0e0;
+        }
+        
+        .hero .button {
+            position: relative; /* Ensure button appears above the video */
+            z-index: 2; /* Keep button above the background video */
+            background-color: #00ff99;
+            color: #000;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 10px 0;
+        }
+        
+        .hero .button:hover {
+            background-color: #00cc7a;
+            transform: scale(1.1);
+        }
+        
+        /* About Us Section */
+        .about-container {
+            display: flex;
+            background-image: url('https://www.alexadevsrm.org/hero-logo.svg'); /* Replace with your image path */
+            background-size: 120% 120%; /* Ensures the image covers the entire section */
+            background-position: center; 
+            align-items: right;
+            justify-content: center;
+            padding: 60px 20px;
+            background-color: #000000;
+        }
+
+        .about-image {
+            flex: 1;
+            max-width: 700px;
+            margin-right: 30px;
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        .about-text h2 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            font-size: 20px;
+            color: #e0e0e0;
+            max-width: 800px;
+        }
+
+        /* Our Domains Section */
+        .domains-section {
+            padding: 60px 60px;
+        }
+
+        .domain {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .domain:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .domain img {
+            max-width: 550px;
+            margin: 0 30px;
+            border-radius: 1px;
+        }
+
+        .domain-text {
+            flex: 1;
+        }
+
+        .domain-text h3 {
+            margin-bottom: 50px;
+            font-size: 60px;
+        }
+
+        .domain1 h1 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 60px;
+        }
+
+        .domain-text p {
+            color: #f2f4f3;
+            margin-bottom: 20px;
+            font-size: 30px;
+        }
+        .Contact-container h1{
+            margin-bottom: 20px;
+            font-size: 80px ;
+            font-family: Arial, sans-serif;
+        }
+        .wrapper {
+            display: flex;
+            list-style: none;
+            padding-top: 40px;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .icon {
+            position: relative;
+            background: #fff;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .icon i {
+            color: #000;
+        }
+        
+        .icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tooltip {
+            position: absolute;
+            bottom: -35px;
+            background-color: #03d17f;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        
+        .icon:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Center the footer icons */
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px; /* Add margin for spacing */
+        }
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #00ff99;
+            text-align: center;
+            padding: 40px 0;
+        }
+       
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+       
+        @media only screen and (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+            }
+
+            .domain {
+                flex-direction: column;
+            }
+        }
+        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <img src="logo.png" alt="Alexa Developers Club Logo">
+            <ul>
+                <li><a href="index.html" class="button">Home</a></li>
+                <li><a href="about.html" class="button">About Us</a></li>
+                <li><a href="team.html" class="button">Our Team</a></li>
+                <li><a href="events.html" class="button">Events</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video autoplay muted loop class="background-video">
+            <source src="videohero.mp4" type="video/mp4">
+        </video>
+        <h2>"Voices United, Tech Amplified"</h2>
+        <div class="typing-container">
+            <p>Join our community of Alexa enthusiasts, where technology and innovation come together to create amazing voice experiences. Explore, learn, and grow with us.</p>
+        </div>
+        <a href="https://www.alexadevsrm.org/apply" class="button">Join the Club</a>
+    </section>
+    
+    <!-- About Us Section -->
+    <section id="about" class="about-container">
+        <img src="people.jpg.png" alt="Alexa Developers" class="about-image">
+        <div class="about-text">
+            <h2>About Us</h2>
+            <p>Welcome to Alexa Developers SRM, a thriving, student-run technical organization at SRMIST that brings technology and community together. We create an open atmosphere for tech enthusiasts to explore, learn, and grow, with a focus on voice-controlled technologies, application development, and UI/UX design via hands-on events and workshops. Our club is a hotbed of collaboration and innovation, where members can experiment, share expertise, and make a real difference. Whether you're a newcomer to technology or a seasoned professional, our wide range of workshops, hackathons, and contests provide ongoing learning and practical skill development.
+                Together we build a community, where creativity knows no bounds and collaboration is key.</p>
+        </div>
+    </section>
+
+    <!-- Our Domains Section -->
+     <section>
+        <div class="domain1">
+            <h1>Our Domains</h1>
+        </div>
+     </section>
+    <section class="domains-section">
+        <div class="domain">
+            <div class="domain-text">
+                <h3>Technical</h3>
+                <p>A vibrant community of tech enthusiasts collaborating and transforming the future. The tech domain works together to perfect frontend user experiences, build robust systems in backend, and innovate ideas through app dev, elevating their skills throughout the journey.</p>
+            </div>
+            <img src="tech.svg" alt="Technical Domain">
+        </div>
+
+        <div class="domain">
+            <div class="domain-text">
+                <h3>Creatives</h3>
+                <p>In the Creatives domain, ideas evolve into unforgettable experiences. The talented content writers and designers have mastered the creation of compelling narratives and seamless design interfaces. Experience the forefront of creativity as they shape the art of engagement.</p>
+            </div>
+            <img src="creatives.svg" alt="Creatives Domain">
+        </div>
+
+        <div class="domain">
+            <div class="domain-text">
+                <h3>Business</h3>
+                <p>Business domain plays a pivotal role in managing operations and fostering connections. With their keen sense for partnerships and strategy, they ensure the club's initiatives align with both members' needs and industry trends, ensuring that we stay ahead of the curve.</p>
+            </div>
+            <img src="buisness.svg" alt="Business Domain">
+        </div>
+    </section>
+    <section id="Contact Us" class="Contact-container">
+        <pre>
+        <h1>Contact Us</h1>
+    </pre>
+   
+      <!-- Footer Icons -->
+    <div class="footer-icons">
+        <div class="icon" onclick="window.open('https://m.facebook.com/alexadevsrm/', '_blank')">
+            <i class="fab fa-facebook-f"></i>
+            <div class="tooltip">Facebook</div>
+        </div>
+        <div class="icon" onclick="window.open('https://x.com/i/flow/login?redirect_after_login=%2Falexadevsrm', '_blank')">
+            <i class="fab fa-twitter"></i>
+            <div class="tooltip">Twitter</div>
+        </div>
+        <div class="icon" onclick="window.open('https://www.linkedin.com/company/alexa-developers-srm/', '_blank')">
+            <i class="fab fa-linkedin-in"></i>
+            <div class="tooltip">LinkedIn</div>
+        </div>
+        <div class="icon" onclick="window.open('https://www.instagram.com/alexadevsrm?igsh=c240bnl1Nnh1cTdl', '_blank')">
+            <i class="fab fa-instagram"></i>
+            <div class="tooltip">Instagram</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <pre>
+        <p>   Designed and Developed by Aaditya Tiwary</p></pre>
+    </footer>
+</body>
+</html>

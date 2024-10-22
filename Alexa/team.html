@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADS! Team</title>
+    
+    <!-- Styles -->
+    <style>
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(41, 40, 40, 0.8);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        nav img {
+            width: 200px;
+            transition: transform 0.3s ease;
+        }
+
+        nav img:hover {
+            transform: scale(1.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #f5f5f5;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 12px 24px;
+            border-radius: 25px;
+            background-color: rgba(58, 58, 58, 0.8);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: relative;
+            box-shadow: rgba(0, 0, 0, 0.5) 0 4px 12px;
+        }
+
+        nav ul li a:hover {
+            color: #fff;
+            background-color: hsl(261, 80%, 50%);
+            transform: scale(1.1);
+            box-shadow: rgba(93, 24, 220, 0.8) 0px 7px 29px;
+        }
+
+        /* General Body and Team Section */
+        body {
+            background-color: #1c1c1c;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px 0;
+        }
+        p{
+            color: #ffffff;
+            margin: 20px 0;
+            font-size: 25px;
+        }
+
+        h1{
+            color: #03d17f;
+            margin: 20px 0;
+            font-size: 60px;
+        }
+
+        h2 {
+            color: #03d17f;
+            margin: 20px 0;
+            font-size: 60px;
+        }
+
+        .team-section {
+            margin-bottom: 50px;
+        }
+
+        .line {
+            width: 80%;
+            height: 2px;
+            background-color: #2ecc71;
+            margin: 30px auto;
+        }
+
+        .team-member {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .team-member p {
+            margin: 10px 0;
+        }
+
+        .social-icons {
+            margin-top: 8px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #2ecc71;
+        }
+
+        .wrapper {
+            display: flex;
+            list-style: none;
+            padding-top: 40px;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .icon {
+            position: relative;
+            background: #fff;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .icon i {
+            color: #000;
+        }
+        
+        .icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tooltip {
+            position: absolute;
+            bottom: -35px;
+            background-color: #03d17f;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        
+        .icon:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Center the footer icons */
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px; /* Add margin for spacing */
+        }
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Send video behind other content */
+        }
+    </style>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <img src="logo.png" alt="Alexa Developers Club Logo">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="team.html">Our Team</a></li>
+                <li><a href="events.html">Events</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Our Team</h1>
+    <p>Our team at the SRM Alexa Developer Club includes passionate members, dedicated executives, and a visionary head, all working together to foster innovation, learning, and community engagement through dynamic events and activities.</p>
+    <div class="line"></div>
+    <!-- Team Sections -->
+    <div class="team-section">
+        <h2>The Core</h2>
+        <div class="team-member">
+            <img src="https://cdn.sanity.io/images/s4t0kmno/production/44024fc9f564f47af5055353df6c74776843c736-800x800.jpg" alt="Member 1">
+            <p>Talat Binti Firdous</p>
+            <p>President</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/talat_firdous/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/talat-khushkhwan-/"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="https://cdn.sanity.io/images/s4t0kmno/production/345a9ee216f05af22188294647cb95c0b4f3d903-800x800.jpg" alt="Member 2">
+            <p>Shivain Kohli</p>
+            <p>Vice President</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/shivainkohli/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/shivainkohli/"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div><h2>.......continued</h2>
+        <div class="line"></div>
+    </div>
+    
+    <div class="team-section">
+        <h2>The Heads</h2>
+        <div class="team-member">
+            <img src="https://cdn.sanity.io/images/s4t0kmno/production/64c8289c59fef5e86c5542137d6bda1e0b555cae-800x800.jpg" alt="Technical Head">
+            <p>Divyanshu Yadav</p>
+            <p>Technical Head</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/devyansh18._/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/divyanshu1810/"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="https://cdn.sanity.io/images/s4t0kmno/production/b7a089c6cfccf6314d88c4e08369a4f2865e6a2f-952x1280.jpg" alt="Events Head">
+            <p>Muhammad Azhar Abbas</p>
+            <p>Events Head</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/iamabb4s_/?igsh=emo0Zm50dHZscTc0&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/me?_l=en_US"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div><h2>.......continued</h2>
+        <div class="line"></div>
+    </div>
+
+    <div class="team-section">
+        <h2>The Leads</h2>
+        
+        <div class="line"></div>
+    </div>
+
+    <h2>The Executives</h2>
+    
+    <div class="line"></div>
+</div>
+
+    <!-- Footer Icons -->
+    <div class="footer-icons">
+        <div class="icon" onclick="window.open('https://m.facebook.com/alexadevsrm/', '_blank')">
+            <i class="fab fa-facebook-f"></i>
+            <div class="tooltip">Facebook</div>
+        </div>
+        <div class="icon" onclick="window.open('https://x.com/i/flow/login?redirect_after_login=%2Falexadevsrm', '_blank')">
+            <i class="fab fa-twitter"></i>
+            <div class="tooltip">Twitter</div>
+        </div>
+        <div class="icon" onclick="window.open('https://www.linkedin.com/company/alexa-developers-srm/', '_blank')">
+            <i class="fab fa-linkedin-in"></i>
+            <div class="tooltip">LinkedIn</div>
+        </div>
+        <div class="icon" onclick="window.open('https://www.instagram.com/alexadevsrm?igsh=c240bnl1Nnh1cTdl', '_blank')">
+            <i class="fab fa-instagram"></i>
+            <div class="tooltip">Instagram</div>
+        </div>
+    </div>
+    
+</body>
+</html>
